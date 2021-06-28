@@ -2,8 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.connectifex</groupId>
-	<artifactId>dm-start</artifactId>
+	<groupId>PACKAGE_NAME</groupId>
+	<artifactId>DSL_NAME</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>com.connectifex</groupId>
 			<artifactId>dark-matter-data</artifactId>
-			<version>3.1.9</version>
+			<version>3.1.10</version>
 		</dependency>
 	</dependencies>
 
@@ -67,8 +67,7 @@
 									<arg value="dark-matter-data" />
 									<arg value="-autogen" />
 									<arg value="-targets" />
-									<!-- INSERT DSL NAME HERE -->
-									<arg value="eml" />
+									<arg value="DSL_NAME" />
 									<arg value="-debug" />
 									<classpath>
 										<pathelement
@@ -88,8 +87,7 @@
 									<arg value="dark-matter-data" />
 									<arg value="-autogen" />
 									<arg value="-targets" />
-									<!-- INSERT DSL NAME HERE -->
-									<arg value="eml" />
+									<arg value="DSL_NAME" />
 									<arg value="-debug" />
 									<classpath>
 										<pathelement
@@ -131,8 +129,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<!-- INSERT DSL UTILITY NAME HERE -->
-									<mainClass>com.arista.eml.tools.emlutil.EmlUtilMain</mainClass>
+									<mainClass>UTILITY_MAIN</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
@@ -142,9 +139,7 @@
 
 		</plugins>
 
-
 	</build>
-
 
 	<name>dm-start</name>
 	<url>https://github.com/dark-matter-org/dm-start</url>
