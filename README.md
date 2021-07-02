@@ -5,7 +5,7 @@ The dm-start project provides the template of a dark-matter Domain Specific Lang
 ## Requirements
 
 - JDK 1.8
-- Eclipse at [2020-12-R (4.18)](https://www.eclipse.org/downloads/packages/release/2020-12/r) or earlier
+- Eclipse at [2020-12-R (4.18)](https://www.eclipse.org/downloads/packages/release/2020-12/r) or earlier (the Eclipse IDE for Enterprise Java Developers version is a good choice)
 
 ### Preference tweaks
 
