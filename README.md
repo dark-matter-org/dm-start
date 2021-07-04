@@ -32,3 +32,8 @@ If you run `mvn install` from the command line in your project root directory, y
 
 Select **Run Configurations -> DSL Bootstrap** and answer the prompts.
 
+Once the DSL has been generated, right click the dm-start project and select "Refresh".
+
+Then, right click and select "Run As -> Maven install" - this will create a shaded, executable jar of your DSL project.
+
+

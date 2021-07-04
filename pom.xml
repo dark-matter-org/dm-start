@@ -70,7 +70,6 @@
 									<arg value="-autogen" />
 									<arg value="-targets" />
 									<arg value="DSL_NAME" />
-									<arg value="-debug" />
 									<classpath>
 										<pathelement
 											location="${maven.dependency.commons-io.commons-io.jar.path}" />
@@ -90,7 +89,6 @@
 									<arg value="-autogen" />
 									<arg value="-targets" />
 									<arg value="DSL_NAME" />
-									<arg value="-debug" />
 									<classpath>
 										<pathelement
 											location="${maven.dependency.commons-io.commons-io.jar.path}" />
