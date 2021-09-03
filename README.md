@@ -39,6 +39,10 @@ Once the DSL has been generated, right click the dm-start project and select "Re
 Then, right click and select "Run As -> Maven install" - this will create a shaded, executable jar of your DSL project.
 
 
+# 3 Basic dark-matter concepts
+
+
+
 
 
 # Appendix: Other Notes
@@ -57,6 +61,6 @@ SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
 You may safely ignore these warnings - but if you want further information on them, see the following Stack Overflow question: [Eclipse Maven: SLF4J: Class path contains multiple SLF4J bindings](https://stackoverflow.com/questions/63518376/eclipse-maven-slf4j-class-path-contains-multiple-slf4j-bindings)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0MDY1NjkwMSw2MjU0OTc0MDcsLTc1Mj
-I3MDY5NV19
+eyJoaXN0b3J5IjpbNjEzNDQwMTg4LDYyNTQ5NzQwNywtNzUyMj
+cwNjk1XX0=
 -->
