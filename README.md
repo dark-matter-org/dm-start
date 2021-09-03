@@ -40,6 +40,7 @@ Then, right click and select "Run As -> Maven install" - this will create a shad
 
 
 
+
 # Appendix: Other Notes
 
 ## Maven Warnings
@@ -56,5 +57,5 @@ SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
 You may safely ignore these warnings - but if you want further information on them, see the following Stack Overflow question: [Eclipse Maven: SLF4J: Class path contains multiple SLF4J bindings](https://stackoverflow.com/questions/63518376/eclipse-maven-slf4j-class-path-contains-multiple-slf4j-bindings)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY3ODYzNjMyLC03NTIyNzA2OTVdfQ==
+eyJoaXN0b3J5IjpbODgyODE4MDE4LC03NTIyNzA2OTVdfQ==
 -->
