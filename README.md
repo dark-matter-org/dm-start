@@ -6,7 +6,7 @@ The dm-start project provides the template of a dark-matter Domain Specific Lang
 
 * [1 Environment Setup](#1-environment-setup)
   * [1.1 Requirements](#11-requirements) 
-  * * [1.1 Requirements](#11-requirements) 
+  * [1.2 Preference Tweaks](#12-preference-tweaks) 
 
 # Environment Setup
 
@@ -15,7 +15,7 @@ The dm-start project provides the template of a dark-matter Domain Specific Lang
 - JDK 1.8
 - Eclipse at [2020-12-R (4.18)](https://www.eclipse.org/downloads/packages/release/2020-12/r) or earlier (the Eclipse IDE for Enterprise Java Developers version is a good choice)
 
-### Preference tweaks
+## Preference tweaks
 
 Once Eclipse is installed, it's recommended that you make the following changes to your preferences:
 
@@ -46,7 +46,7 @@ Then, right click and select "Run As -> Maven install" - this will create a shad
 
 
 
-# Appendix: 
+# Appendix: Oth
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3ODc1NTc5NiwtNzUyMjcwNjk1XX0=
+eyJoaXN0b3J5IjpbMjEyNTcwMzMyMywtNzUyMjcwNjk1XX0=
 -->
