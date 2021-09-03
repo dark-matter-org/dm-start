@@ -5,6 +5,8 @@ The dm-start project provides the template of a dark-matter Domain Specific Lang
 # Table of Contents
 
 * [1 Environment Setup](#1-environment-setup)
+  * [1.1 Requirements](#11-requirements) 
+  * * [1.1 Requirements](#11-requirements) 
 
 # Environment Setup
 
@@ -46,5 +48,5 @@ Then, right click and select "Run As -> Maven install" - this will create a shad
 
 # Appendix: 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MjcxNTgyMDYsLTc1MjI3MDY5NV19
+eyJoaXN0b3J5IjpbLTQ3ODc1NTc5NiwtNzUyMjcwNjk1XX0=
 -->
