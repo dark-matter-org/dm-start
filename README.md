@@ -8,6 +8,7 @@ The dm-start project provides the template of a dark-matter Domain Specific Lang
   * [1.1 Requirements](#11-requirements) 
   * [1.2 Preference Tweaks](#12-preference-tweaks) 
 * [2 Create your DSL](#2-create-your-dsl)
+  *
 
 # Environment Setup
 
@@ -23,13 +24,14 @@ Once Eclipse is installed, it's recommended that you make the following changes 
 - Version Control (Team) -> Git - Set: Default repository folder to: **${workspace_loc}**
 - Maven -> Errors/Warnings - Set: Plugin execution not cover by lifecyle configuration to: **Ignore**
 
-NOTE: When executing the Maven build for your DSL within Eclipse, you may see [warnings]()
+NOTE: When executing the Maven build for your DSL within Eclipse, you may see [warnings](); you may safely ignore them.
 
 
 
 # Create your DSL
 
-## Bootstrap
+## Run DSL Bootstrap
+
 Select **Run Configurations -> DSL Bootstrap** and answer the prompts.
 
 Once the DSL has been generated, right click the dm-start project and select "Refresh".
@@ -54,5 +56,5 @@ SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
 You may safely ignore these warnings - but if you want further information on them, see the following Stack Overflow question: [Eclipse Maven: SLF4J: Class path contains multiple SLF4J bindings](https://stackoverflow.com/questions/63518376/eclipse-maven-slf4j-class-path-contains-multiple-slf4j-bindings)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MjkzMDUyOTMsLTc1MjI3MDY5NV19
+eyJoaXN0b3J5IjpbODY3ODYzNjMyLC03NTIyNzA2OTVdfQ==
 -->
