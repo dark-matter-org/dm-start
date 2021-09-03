@@ -12,12 +12,12 @@ The dm-start project provides the template of a dark-matter Domain Specific Lang
 
 # 1 Environment Setup
 
-## Requirements
+## 1.1 Requirements
 
 - JDK 1.8
 - Eclipse at [2020-12-R (4.18)](https://www.eclipse.org/downloads/packages/release/2020-12/r) or earlier (the Eclipse IDE for Enterprise Java Developers version is a good choice)
 
-## Preference tweaks
+## 1.2 Preference tweaks
 
 Once Eclipse is installed, it's recommended that you make the following changes to your preferences:
 
@@ -30,7 +30,7 @@ NOTE: When executing the Maven build for your DSL within Eclipse, you may see [w
 
 # 2 Create your DSL
 
-## Run DSL Bootstrap
+## 2.1 Run DSL Bootstrap
 
 Select **Run Configurations -> DSL Bootstrap** and answer the prompts.
 
