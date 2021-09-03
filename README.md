@@ -22,19 +22,9 @@ Once Eclipse is installed, it's recommended that you make the following changes 
 - Version Control (Team) -> Git - Set: Default repository folder to: **${workspace_loc}**
 - Maven -> Errors/Warnings - Set: Plugin execution not cover by lifecyle configuration to: **Ignore**
 
-NOTE: When executing the Maven build for your DSL within Eclipse, you may see the following warnings:
+NOTE: When executing the Maven build for your DSL within Eclipse, you may see [warnings]()
 
-```
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/Applications/Eclipse-JEE-2020-12-R-dm-start.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime.slf4j.simple_1.16.0.20200610-1735/jars/slf4j-simple-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [file:/Applications/Eclipse-JEE-2020-12-R-dm-start.app/Contents/Eclipse/configuration/org.eclipse.osgi/5/0/.cp/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
-```
 
-You may safely ignore these warnings - but if you want further information on them, see the following Stack Overflow question: [Eclipse Maven: SLF4J: Class path contains multiple SLF4J bindings](https://stackoverflow.com/questions/63518376/eclipse-maven-slf4j-class-path-contains-multiple-slf4j-bindings)
-
-If you run `mvn install` from the command line in your project root directory, you won't see any warnings.
 
 # Bootstrap your DSL
 
@@ -62,5 +52,5 @@ SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
 You may safely ignore these warnings - but if you want further information on them, see the following Stack Overflow question: [Eclipse Maven: SLF4J: Class path contains multiple SLF4J bindings](https://stackoverflow.com/questions/63518376/eclipse-maven-slf4j-class-path-contains-multiple-slf4j-bindings)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4NjUzNDA0MiwtNzUyMjcwNjk1XX0=
+eyJoaXN0b3J5IjpbMTc1MTc5ODUyMiwtNzUyMjcwNjk1XX0=
 -->
