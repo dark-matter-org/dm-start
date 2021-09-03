@@ -2,6 +2,11 @@
 
 The dm-start project provides the template of a dark-matter Domain Specific Language (DSL) project.
 
+# Table of Contents
+
+* [1 Environment Setup](#1-environment-setup)
+
+# Environment Setup
 ## Requirements
 
 - JDK 1.8
@@ -40,5 +45,5 @@ Then, right click and select "Run As -> Maven install" - this will create a shad
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1MjI3MDY5NV19
+eyJoaXN0b3J5IjpbMTUwNjMyMDY0MCwtNzUyMjcwNjk1XX0=
 -->
