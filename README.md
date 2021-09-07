@@ -4,11 +4,13 @@ The dm-start project provides the template of a dark-matter Domain Specific Lang
 
 # Table of Contents
 
+<!--
 * [1 Environment Setup](#1-environment-setup)
   * [1.1 Requirements](#11-requirements) 
   * [1.2 Preference Tweaks](#12-preference-tweaks) 
 * [2 Create your DSL](#2-create-your-dsl)
-  * [2.1 Run DSL Bootstrap](21-run-dsl-bootstrap)
+  * [2.1 Run DSL Bootstrap](#21-run-dsl-bootstrap)
+-->
 
 # 1 Environment Setup
 
@@ -41,9 +43,7 @@ Then, right click and select "Run As -> Maven install" - this will create a shad
 
 # 3 Basic dark-matter concepts
 
-
-
-
+<!-- comment -->
 
 # Appendix: Other Notes
 
