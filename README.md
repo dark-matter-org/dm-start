@@ -2,15 +2,6 @@
 
 The dm-start project provides the template of a dark-matter Domain Specific Language (DSL) project.
 
-# Table of Contents
-
-<!--
-* [1 Environment Setup](#1-environment-setup)
-  * [1.1 Requirements](#11-requirements) 
-  * [1.2 Preference Tweaks](#12-preference-tweaks) 
-* [2 Create your DSL](#2-create-your-dsl)
-  * [2.1 Run DSL Bootstrap](#21-run-dsl-bootstrap)
--->
 
 # 1 Environment Setup
 
@@ -24,7 +15,7 @@ The dm-start project provides the template of a dark-matter Domain Specific Lang
 Once Eclipse is installed, it's recommended that you make the following changes to your preferences:
 
 - Version Control (Team) -> Git - Set: Default repository folder to: **${workspace_loc}**
-- Maven -> Errors/Warnings - Set: Plugin execution not cover by lifecyle configuration to: **Ignore**
+- Maven -> Errors/Warnings - Set: Plugin execution not covered by lifecyle configuration to: **Ignore**
 
 NOTE: When executing the Maven build for your DSL within Eclipse, you may see [warnings](); you may safely ignore them.
 
