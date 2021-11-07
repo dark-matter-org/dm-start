@@ -25,11 +25,29 @@ NOTE: When executing the Maven build for your DSL within Eclipse, you may see [w
 
 ## 2.1 Run DSL Bootstrap
 
-Select **Run Configurations -> DSL Bootstrap** and answer the prompts.
+In the Eclipse menu bar, select the small black triangle next to the green "Run Configuration" icon and select "DSL Bootstrap":
 
-Once the DSL has been generated, right click the dm-start project and select "Refresh".
+![run bootstrap](images/run-bootstrap.png)
 
-Then, right click and select "Run As -> Maven install" - this will create a shaded, executable jar of your DSL project.
+You will be prompted to enter a new Java package name - in this case, `com.example.xdsl` and an 
+abbreviation/file extension for your DSL, in this case, `xdsl`
+
+![run bootstrap](images/enter-package-and-abbrev.png)
+
+After hitting enter after your abbreviation, you'll see feedback on the files being generated:
+
+![run bootstrap](images/code-generated.png)
+
+Once the DSL has been generated, right click the dm-start project and select "Refresh":
+
+![run bootstrap](images/refresh-project.png)
+
+## 2.2 Run Maven Install
+
+Right click the project and select "Run As -> Maven install" - this will create a shaded, executable jar of your DSL project:
+
+![run bootstrap](images/maven-install.png)
+
 
 
 # 3 Basic dark-matter concepts
