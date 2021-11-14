@@ -48,6 +48,22 @@ Right click the project and select "Run As -> Maven install" - this will create 
 
 ![run bootstrap](images/maven-install.png)
 
+As a result of this, you will see that various artifacts are created in your local Maven repository.
+In the case of this example you'll see the following artifacts in `~/.m2/repository/com/example/xdsl/xdsl/0.0.1-SNAPSHOT`:
+* `xdsl-0.0.1-SNAPSHOT.jar`
+* `xdsl-0.0.1-SNAPSHOT.pom`
+* `xdsl-0.0.1-SNAPSHOT-shaded.jar`
+
+Of these, the most important is the `shaded` JAR - this is an executable JAR that can be provided to users of your DSL.
+
+If you create an alias like: <br>
+`alias xdsl='~/.m2/repository/com/example/xdsl/xdsl/0.0.1-SNAPSHOT/xdsl-0.0.1-SNAPSHOT-shaded.jar'`
+
+And then run `xdsl` you'll see the help associated with the 
+
+## 2.3 Generated code structure
+
+![run bootstrap](images/generated-structure.png)
 
 
 # 3 Basic dark-matter concepts
@@ -59,13 +75,8 @@ Right click the project and select "Run As -> Maven install" - this will create 
 ## Maven Warnings
 
 Within Eclipse, you may see a warning like:
-```
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/Applications/Eclipse-JEE-2020-12-R-dm-start.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime.slf4j.simple_1.16.0.20200610-1735/jars/slf4j-simple-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [file:/Applications/Eclipse-JEE-2020-12-R-dm-start.app/Contents/Eclipse/configuration/org.eclipse.osgi/5/0/.cp/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
-```
+
+![run bootstrap](images/maven-warnings.png)
 
 You may safely ignore these warnings - but if you want further information on them, see the following Stack Overflow question: [Eclipse Maven: SLF4J: Class path contains multiple SLF4J bindings](https://stackoverflow.com/questions/63518376/eclipse-maven-slf4j-class-path-contains-multiple-slf4j-bindings)
 
