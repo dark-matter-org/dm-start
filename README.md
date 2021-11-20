@@ -2,6 +2,20 @@
 
 The dm-start project provides the template of a dark-matter Domain Specific Language (DSL) project.
 
+The dark-matter mechanisms allow you to focus on the conceptual model of the domain you're dealing
+with and provides a modular persistence/specification approach that minimizes the coding involved.
+All of the infrastructure required to parse, load and organize your configuration objects for use
+in your application is generated for you based on a schema specification.
+
+By running the bootstrap utility and providing a java package and name for the DSL, you'll get the following:
+
+- an example schema specification
+- the code generated from that schema
+- a module (configuration file) that contains examples of the DSL concepts
+- a module loader class that parses/loads your DSL modules
+- an example utility that allows you to load one or more modules
+- A JUnit test that executes the DSL utility
+- the Maven pom required to create a self-contained, shaded jar of the DSL
 
 # 1 Environment Setup
 
@@ -59,11 +73,32 @@ Of these, the most important is the `shaded` JAR - this is an executable JAR tha
 If you create an alias like: <br>
 `alias xdsl='~/.m2/repository/com/example/xdsl/xdsl/0.0.1-SNAPSHOT/xdsl-0.0.1-SNAPSHOT-shaded.jar'`
 
-And then run `xdsl` you'll see the help associated with the 
+And then run `xdsl` you'll see the help associated with the generated utility that exists in `com.example.xdsl.tools.xdslutil.XdslUtilMain`
 
-## 2.3 Generated code structure
+## 2.3 Run JUnit for XdslutilMain
+
+In you project explorer, navigate to:
+
+![run bootstrap](images/unit-test.png)
+
+Right click `XdslUtilMainTest` and select Run As -> JUnit Test
+
+You'll see the following output:
+
+![run bootstrap](images/unit-test-output.png)
+
+Running the test has read the contents of `data/example.xdsl` that contained:
+
+![run bootstrap](images/example-xdsl.png)
+
+
+
+
+## 2.4 Generated code structure
 
 ![run bootstrap](images/generated-structure.png)
+
+### 
 
 
 # 3 Basic dark-matter concepts
