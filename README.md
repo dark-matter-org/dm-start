@@ -132,25 +132,248 @@ Column 2
 |----|----|
 
 
-
-### 
-
-
 # 3 Basic dark-matter concepts
 
 The following sections describe some of the main concepts associated with dark-matter.
 
-## Dark Matter Objects (DMOs)
+## 3.1 Dark Matter Objects (DMOs)
+
+The Dark Matter Object (DMO) - pronounced dee-moh - forms the core of the dark-matter framework.
+At base, it is a Plain Old Java object (POJO) that represents its values as a map of attribute values.
+This approach allows for many capabilities that we won't discuss here, but, suffice to say, you
+don't need to worry about getting/setting attributes values, the getters/and setters are generated
+for you automatically.
+
+## 3.2 Object Instance Format (OIF)
+
+The persistence format for a DMO is Object Instance Format (OIF) - a very clean, text-based format
+that is straightforward for humans to write and read. An example of this format is:
+
+```
+AttributeDefinition
+name        stringVlaue
+dmdID       10
+type        String
+description Holds a String
+```
+
+This is an `AttributeDefinition` object instance; the class of object is always the first line of
+a DMO in OIF format; you never need to guess what you're looking at, a DMO is self-describing.
+
+This is followed by one or more attribute values - you can think of these
+as name-value pairs if you like.
+
+If an attribute is multi-valued i.e an array or a set values, you simply repeat the name of the attribute.
+The following shows multiple blocks of descriptive text.
+
+```
+AttributeDefinition
+name        stringVlaue
+dmdID       10
+type        String
+description Holds a String
+description And, another block of description, since
+ the description attribute is multi-valued. Attributes
+ can span multiple lines.
+
+```
+
+This also demonstrates that starting a line with a whitespace character causes it to be
+concatenated with the previous line.
+
+One or more blank lines must separate object instances. For example, here are two `AttributeDefinition` instances.
+
+```
+AttributeDefinition
+name        attr1
+dmdID       20
+type        String
+description An attribute
+
+AttributeDefinition
+name        attr2
+dmdID       22
+type        String
+description Another attribute.
+
+```
+
+OIF uses Java style `//` commenting to allow for additional comments or commenting out sections
+of your OIF-based configurations:
+
+```
+AttributeDefinition
+name        stringVlaue
+dmdID       10
+type        String
+// The following line has been commented out
+// description Holds a String
+```
+
+This is enough to get you started and you'll see OIF used everywhere.
+
+## 3.3 Dark Matter Schema
+
+All of the concepts of your DSL are described using dark-matter's meta schema. The meta schema
+is defined in terms of itself and bootstrapped in the base [dark-matter-data](https://github.com/dark-matter-org/dark-matter-data)
+project - we won't go in to those details here.
+
+We will, however, cover the building blocks that let you define the concepts associated with
+your DSL:
+
+- [Types](#3-3-1-types)
+- [Attributes](#3-3-2-attributes)
+- [Classes](#3-3-3-classes)
+
+If you've followed the example, you dark-matter schema files will be here:
+
+![run bootstrap](images/schema-directory.png)
+
+If you're interested, you can look at [metaSchema.dms](https://github.com/dark-matter-org/dark-matter-data/blob/master/src/org/dmd/dms/meta/metaSchema.dms) for all the gory details ;-)
 
 
+### 3.3.1 Types
 
-## Dark Matter Schema
+The dark-matter framework provides an extensible typing system. We won't discuss the extension mechanisms
+here, but will cover the primitive built-in types, enumerations and complex types in the following sections.
 
-### Types
+Also, when you create [Classes](#3-3-3-classes), types are automatically created for them so that they can
+be referred to when creating 'reference' attributes; more on that later.
 
-### Attributes
+The `TypeDefinition` is part of dark-matter's meta schema and provides the basic building block of [Attributes](#3-3-2-attributes).
 
-### Classes
+#### 3.3.1.1 Primitive Types
+
+The primitive types provided by dark-matter are as follows:
+
+- Boolean
+- Byte
+- Date
+- Double
+- Float
+- Integer
+- Long
+- String
+
+#### 3.3.1.2 Enumerations
+
+Enumerations provide a mapping from String values to Integers and are often used to restrict 
+a specification to a pre-defined set of values. 
+
+The `types.dmd` file contains an example of an `EnumDefinition`:
+
+```
+EnumDefinition
+name             SchemaTypeEnum
+nullReturnValue  SchemaTypeEnum.JSON
+enumValue        0 AVRO        The schemas is AVRO.
+enumValue        1 JSON        The schemas is JSON.
+enumValue        2 XML         The schema is XML.
+description      An example of an Enum type.
+```
+
+By convention, the name of an `EnumDefinition` must end with `Enum`.
+
+You may also specify a `nullReturnValue` so that if you are accessing an attribute of this type that doesn't have an explicit
+value specified, you'll get the `nullReturnValue` as a default.
+
+#### 3.3.1.3 Complex Types
+
+The `ComplexTypeDefinition` allows you to specify a complex type composed of other types. It allows instances of the type to be
+specified on a single line and basically defines a micro-grammar. The class generated from a `ComplexTypeDefinition` represents an immutable value that provides convenient constructors to handle a String value or all specified portions that make up the type, along with getters for each of the `parts`.
+
+Have a look at `complex.dmd` for the following example:
+
+```
+ComplexTypeDefinition
+name            AlternateNameType
+requiredPart    XdslConceptB conceptb  "A reference to a XdslConceptB instance."
+requiredPart    String       why       "Why you're giving it an alternate name." quoted=true
+requiredPart    String       alternate "The alternate name of something."
+optionalPart    String       note      "Some other note you want to add."        quoted=true
+description     An example of a complex type. You can think of this as a micro grammar
+ to define an attribute with many parts, both required and optional. The generated code
+ takes care of sanity checking and gathering all of the parts for use.
+ </p>
+ The micro grammar is:
+ <pre>
+ conceptb "why" alternate [note]
+ </pre>
+ Where:
+ <ul>
+ <li>conceptb  - A reference to a XdslConceptB instance. </li>
+ <li>why       - Why you're giving it an alternate name. </li>
+ <li>alternate - The alternate name of something. </li>
+ </ul>
+ Optional:
+ <ul>
+ <li>optional  - Some other note you want to add. </li>
+ </ul>
+//
+description  An example: william "prefers this:" bill note="Shakespeare can be odd."
+```
+
+This type is used in the `example.xdsl` file that's used to test parsing of the DSL. Here, the `alternate` attribute
+is of type `AlternateNameType`:
+
+```
+XdslConceptA
+name        concept1
+stringValue just some string
+refToB      william
+intValue    99
+alternate   william "prefers this:" bill note="Shakespeare can be odd"
+```
+
+By default, the separator for the parts is whitespace. However, in some cases, you might want to use a different `fieldSeparator`; you would do this by specifying:
+
+```
+ComplexTypeDefinition
+name            AlternateNameType
+fieldSeparator  |
+.
+.
+.
+```
+
+Once you've regenerated your code, you would be able to specify:
+
+```
+XdslConceptA
+name        concept1
+stringValue just some string
+refToB      william
+intValue    99
+alternate   william|"prefers this:"|bill|note="Shakespeare can be odd"
+```
+
+The are other parts to the part definitions that we'll cover at another point.
+
+### 3.3.2 Attributes
+
+The `AttributeDefinition` allows for the specification of attributes values of a particular type that can be composed
+into [Classes](#3-3-3-classes).
+
+Attributes (and Classes) currently have unique numeric identifiers - the `dmdID` - within a particular schemas. These are used
+when serializing/deserializing the attribute and as a hash value to access the attribute within a `DMO`. We won't go into
+the details of this aspect here; just realize that you need to have unique values for `dmdID`.
+
+You may wonder why attributes are given first class status and have their own definitions; most schema mechanisms simple bury 
+attributes (or properties) in the class that uses them. The reasoning behind defining attributes this way comes from the fact that in 
+many systems, the same attribute has the same semantics regardless of where it is used. With dark-matter, you can specify the 
+attribute, its type and documentation once and then refer to it in all locations where you want to use it.
+
+
+#### 3.3.2.1 Reference Attributes
+
+### 3.3.3 Classes
+
+
+# Run-time Aspects
+
+## The Config Loader
+
+## The Definition Manager
 
 <!-- comment -->
 
@@ -162,7 +385,8 @@ Within Eclipse, you may see a warning like:
 
 ![run bootstrap](images/maven-warnings.png)
 
-You may safely ignore these warnings - but if you want further information on them, see the following Stack Overflow question: [Eclipse Maven: SLF4J: Class path contains multiple SLF4J bindings](https://stackoverflow.com/questions/63518376/eclipse-maven-slf4j-class-path-contains-multiple-slf4j-bindings)
+You may safely ignore these warnings - but if you want further information on them, see the following Stack Overflow question:
+ [Eclipse Maven: SLF4J: Class path contains multiple SLF4J bindings](https://stackoverflow.com/questions/63518376/eclipse-maven-slf4j-class-path-contains-multiple-slf4j-bindings)
 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbNjEzNDQwMTg4LDYyNTQ5NzQwNywtNzUyMj
