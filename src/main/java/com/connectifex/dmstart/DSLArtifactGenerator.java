@@ -281,6 +281,8 @@ public class DSLArtifactGenerator {
 		out.write("            return;\n");
 		out.write("        }\n");
 		out.write("                        \n");
+		out.write("        loader = new " + configLoaderClassName + "();\n");
+		out.write("        \n");
 		out.write("        File currentDir = new File(\".\");\n");
 		out.write("        \n");
 		out.write("        TreeSet<String> adjustedSrcDirs = new TreeSet<>();\n");
@@ -308,8 +310,6 @@ public class DSLArtifactGenerator {
 		out.write("                }\n");
 		out.write("            }\n");
 		out.write("        }\n");
-		out.write("        \n");
-		out.write("        loader = new " + configLoaderClassName + "();\n");
 		out.write("        \n");
 		out.write("        if (modules.size() == 0) {\n");
 		out.write("            System.out.println(\"Please specify one or more modules names via the -modules option.\\n\");\n");
