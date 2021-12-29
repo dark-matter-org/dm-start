@@ -71,7 +71,7 @@ In the case of this example you'll see the following artifacts in `~/.m2/reposit
 Of these, the most important is the `shaded` JAR - this is an executable JAR that can be provided to users of your DSL.
 
 If you create an alias like: <br>
-`alias xdsl='~/.m2/repository/com/example/xdsl/xdsl/0.0.1-SNAPSHOT/xdsl-0.0.1-SNAPSHOT-shaded.jar'`
+`alias xdsl='java -jar ~/.m2/repository/com/example/xdsl/xdsl/0.0.1-SNAPSHOT/xdsl-0.0.1-SNAPSHOT-shaded.jar'`
 
 And then run `xdsl` you'll see the help associated with the generated utility that exists in `com.example.xdsl.tools.xdslutil.XdslUtilMain`
 
