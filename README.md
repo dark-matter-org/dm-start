@@ -7,12 +7,13 @@ with and provides a modular persistence/specification approach that minimizes th
 All of the infrastructure required to parse, load and organize your configuration objects for use
 in your application is generated for you based on a schema specification.
 
-By running the [bootstrap](#2-1-run-dsl-bootstrap) utility and providing a java package and name for the DSL, you'll get the following:
+By running the [bootstrap](#2-2-run-dsl-bootstrap) utility and providing a java package and name for the DSL, you'll get the following:
 
 - an example schema specification
 - the code generated from that schema
 - a module (configuration file) that contains examples of the DSL concepts
 - a module loader class that parses/loads your DSL modules
+- a definition manager that provides a single point of access for all loaded configuration
 - an example utility that allows you to load one or more modules
 - A JUnit test that executes the DSL utility
 - the Maven pom required to create a shaded (self-contained), executable jar of the DSL
@@ -30,14 +31,31 @@ Once Eclipse is installed, it's recommended that you make the following changes 
 
 - Version Control (Team) -> Git - Set: Default repository folder to: **${workspace_loc}**
 - Maven -> Errors/Warnings - Set: Plugin execution not covered by lifecyle configuration to: **Ignore**
+- Java -> Installed JREs -> Ensure that your 1.8 JDK is selected
+- Java -> Compiler - Set: Compiler compliance level to: 1.8
+
+If you have many JREs installed, you may also have to alter:
+- Java -> Installed JREs -> Execution Environment  Select the appropriate JRE you want to use for execution
+
+
 
 NOTE: When executing the Maven build for your DSL within Eclipse, you may see [warnings](); you may safely ignore them.
 
 
-
 # 2 Create your DSL
 
-## 2.1 Run DSL Bootstrap
+## 2.1 Clone the dm-start project
+
+- Select File -> Import
+- Select Git -> Projects from Git and hit Next
+- Select Clone URI and hit Next
+- Enter the URI: `https://github.com/dark-matter-org/dm-start.git` and hit Next
+- The `master` branch should be selected - hit Next
+- You'll be importing into your Eclipse workspace - hit Next
+- Import existing Eclipse projects should be selected - hit Next
+- Hit finish
+
+## 2.2 Run DSL Bootstrap
 
 In the Eclipse menu bar, select the small black triangle next to the green "Run Configuration" icon and select "DSL Bootstrap":
 
@@ -56,11 +74,13 @@ Once the DSL has been generated, right click the dm-start project and select "Re
 
 ![run bootstrap](images/refresh-project.png)
 
-## 2.2 Run Maven Install
+## 2.3 Run Maven Install
 
 Right click the project and select "Run As -> Maven install" - this will create a shaded, executable jar of your DSL project:
 
 ![run bootstrap](images/maven-install.png)
+
+** Note: ** If the build fails and indicates that no compiler is available, ensure that you have completed the preference tweaks for the Java installed JREs and Compiler. Then, right click the dm-start project and select Maven -> Update Project... (and hit OK)
 
 As a result of this, you will see that various artifacts are created in your local Maven repository.
 In the case of this example you'll see the following artifacts in `~/.m2/repository/com/example/xdsl/xdsl/0.0.1-SNAPSHOT`:
@@ -75,7 +95,7 @@ If you create an alias like: <br>
 
 And then run `xdsl` you'll see the help associated with the generated utility that exists in `com.example.xdsl.tools.xdslutil.XdslUtilMain`
 
-## 2.3 Run JUnit for XdslutilMain
+## 2.4 Run JUnit for XdslutilMain
 
 In you project explorer, navigate to:
 
@@ -91,7 +111,7 @@ Running the test has read the contents of `data/example.xdsl` that contained:
 
 ![run bootstrap](images/example-xdsl.png)
 
-## 2.4 Generated code structure
+## 2.5 Generated code structure
 
 The bootstrap process will result in the following set of code and configuration generated beneath the
 `com.example.xdsl` package in `src/main/java` and `src/test/java`:
@@ -110,7 +130,7 @@ original development to support the creation of
 projects. Another tutorial will be created to demonstrate these capabilities.
 
 
-### 2.4.1 The dark-matter schema directory
+### 2.5.1 The dark-matter schema directory
 
 The `com.example.xdsl.shared.dmconfig` directory contains the dark-matter schema specification that 
 defines the concepts associated with your DSL.
